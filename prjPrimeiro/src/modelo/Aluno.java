@@ -2,7 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
-public class Aluno extends Pessoa implements Serializable, Comparable<Aluno> {
+public class Aluno  extends Pessoa implements Serializable, Comparable<Aluno> {
 	private int 	matr;
 	private Curso 	meuCurso;
 	
