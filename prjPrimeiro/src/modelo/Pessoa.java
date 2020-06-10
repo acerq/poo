@@ -38,7 +38,7 @@ abstract public class Pessoa implements Serializable {
 	}
 
 	public String toString() {
-		return "Meu nome é " + this.nome;
+		return this.nome;
 	}
 
 	public static boolean validarCpf(String cpf) {

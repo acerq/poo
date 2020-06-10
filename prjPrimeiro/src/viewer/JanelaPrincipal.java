@@ -29,7 +29,7 @@ public class JanelaPrincipal extends JFrame {
 
 		setTitle("Sistema de Cursos e Alunos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 346);
+		setBounds(100, 100, 450, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -65,7 +65,7 @@ public class JanelaPrincipal extends JFrame {
 
 			}
 		});
-		btSalvar.setBounds(93, 160, 243, 29);
+		btSalvar.setBounds(93, 221, 243, 29);
 		contentPane.add(btSalvar);
 		
 		JButton btnSair = new JButton("Sair");
@@ -76,8 +76,19 @@ public class JanelaPrincipal extends JFrame {
 				
 			}
 		});
-		btnSair.setBounds(93, 223, 243, 29);
+		btnSair.setBounds(93, 284, 243, 29);
 		contentPane.add(btnSair);
+		
+		JButton btProjetos = new JButton("Consultar Projetos");
+		btProjetos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				ctrl.iniciarFuncionalidadeConsultarProjetos();
+			
+			}
+		});
+		btProjetos.setBounds(93, 159, 243, 29);
+		contentPane.add(btProjetos);
 
 		setVisible(true);
 	}

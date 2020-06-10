@@ -53,6 +53,16 @@ public class Curso implements Serializable, Comparable<Curso> {
 		this.nome = nome;
 	}
 
+	public Set<Aluno> getConjAlunos() {
+		return new TreeSet<Aluno>(conjAlunos);
+	}
+
+	public void setConjAlunos(Set<Aluno> cas) throws ModeloException  {
+		if(!Curso.validarConjAlunos(cas)) 
+			throw new ModeloException("O conjunto de alunos é inválido!");
+		this.conjAlunos = new TreeSet<Aluno>(cas);
+	}
+
 	public void addAluno(Aluno a) throws ModeloException {
 		if (!Curso.validarAluno(a))
 			throw new ModeloException("Não foi indicado aluno para ser incluído no curso");
@@ -95,6 +105,12 @@ public class Curso implements Serializable, Comparable<Curso> {
 
 	public static boolean validarAluno(Aluno a) {
 		if (a != null)
+			return true;
+		return false;
+	}
+
+	public static boolean validarConjAlunos(Set<Aluno> cas) {
+		if (cas != null)
 			return true;
 		return false;
 	}

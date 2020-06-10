@@ -13,7 +13,7 @@ public class CtrlIncluirCurso {
 	
 	public CtrlIncluirCurso(CtrlConsultarCursos ctrl) {	
 		this.meuControlador = ctrl;
-		this.jCurso = new JanelaCurso(this, TipoCurso.values(), "Incluindo Novo Curso");
+		this.jCurso = new JanelaCurso(this, TipoCurso.getAll(), "Incluindo Novo Curso");
 	}
 	
 	public void incluirCurso(int codigo, String nome, Object tipo) throws ModeloException {

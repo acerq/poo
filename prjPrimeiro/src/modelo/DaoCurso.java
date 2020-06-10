@@ -17,7 +17,7 @@ public class DaoCurso {
 		try {
 			conjCursos = (TreeSet<Curso>)ois.readObject();
 		} catch (Exception e) {
-			System.out.println("Não foi possível recuperar os objetos Aluno");
+			System.out.println("Não foi possível recuperar os objetos Curso");
 			conjCursos = new TreeSet<Curso>();
 		} 	
 	}
@@ -26,7 +26,7 @@ public class DaoCurso {
 		try {
 			oos.writeObject(conjCursos);
 		} catch (Exception e) {
-			System.out.println("Não foi possível salvar os objetos Aluno");
+			System.out.println("Não foi possível salvar os objetos Curso");
 		}		
 	}
 	
@@ -47,9 +47,8 @@ public class DaoCurso {
 		return lista.get(pos);
 	}
 	
-	public Curso[] getAll() {
-		List<Curso> lista = new ArrayList<Curso>(conjCursos);
-		return lista.toArray(new Curso[0]);
+	public List<Curso> getAll() {
+		return new ArrayList<Curso>(conjCursos);
 	}
 	
 	public int size() {

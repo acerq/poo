@@ -3,6 +3,8 @@ package viewer;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collection;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -11,15 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controle.CtrlAlterarAluno;
 import controle.CtrlExcluirAluno;
 import controle.CtrlIncluirAluno;
-import modelo.Aluno;
-import modelo.DaoAluno;
 import modelo.ModeloException;
-import javax.swing.SwingConstants;
 
 public class JanelaAluno extends JFrame {
 	// Declaração de uma constante
@@ -39,18 +39,18 @@ public class JanelaAluno extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JanelaAluno(CtrlIncluirAluno ctrl, String msg, Object[] cursos) {
-		this(msg, "", "", "", null, cursos);
+	public JanelaAluno(CtrlIncluirAluno ctrl, String msg, List todosCursos) {
+		this(msg, "", "", "", null, todosCursos);
 		this.ctrlIncluir = ctrl;
 	}
 	
-	public JanelaAluno(CtrlAlterarAluno ctrl, String msg, String cpf, String nome, int matr, Object selecionado, Object[] cursos) {
-		this(msg, cpf, nome, Integer.toString(matr), selecionado, cursos);
+	public JanelaAluno(CtrlAlterarAluno ctrl, String msg, String cpf, String nome, int matr, Object cursoDoAluno, Collection todosCursos) {
+		this(msg, cpf, nome, Integer.toString(matr), cursoDoAluno, todosCursos);
 		this.ctrlAlterar = ctrl;
 	}
 	
-	public JanelaAluno(CtrlExcluirAluno ctrl, String msg, String cpf, String nome, int matr, Object selecionado, Object[] cursos) {
-		this(msg, cpf, nome, Integer.toString(matr), selecionado, cursos);
+	public JanelaAluno(CtrlExcluirAluno ctrl, String msg, String cpf, String nome, int matr, Object cursoDoAluno, Collection todosCursos) {
+		this(msg, cpf, nome, Integer.toString(matr), cursoDoAluno, todosCursos);
 		this.ctrlExcluir = ctrl;
 		tfCpf.setEditable(false);
 		tfNome.setEditable(false);
@@ -61,7 +61,7 @@ public class JanelaAluno extends JFrame {
 	/**
 	 * @wbp.parser.constructor
 	 */
-	public JanelaAluno(String msg, String cpf, String nome, String matr, Object selecionado, Object[] cursos) {
+	private JanelaAluno(String msg, String cpf, String nome, String matr, Object cursoDoAluno, Collection<Object> todosCursos) {
 		setTitle("Aluno");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 459, 396);
@@ -152,10 +152,10 @@ public class JanelaAluno extends JFrame {
 		tfMatr.setBounds(94, 112, 231, 26);
 		contentPane.add(tfMatr);
 		
-		cbCurso = new JComboBox(cursos);
+		cbCurso = new JComboBox(todosCursos.toArray());
 		cbCurso.setBounds(94, 218, 297, 26);
 		contentPane.add(cbCurso);
-		cbCurso.setSelectedItem(selecionado);
+		cbCurso.setSelectedItem(cursoDoAluno);
 		
 		JLabel lblNewLabel_2 = new JLabel("Curso:");
 		lblNewLabel_2.setBounds(26, 221, 69, 20);

@@ -14,6 +14,7 @@ public class DaoPrograma {
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			DaoAluno.recuperarObjetos(ois);
 			DaoCurso.recuperarObjetos(ois);
+			DaoProjeto.recuperarObjetos(ois);
 			ois.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -26,6 +27,7 @@ public class DaoPrograma {
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			DaoAluno.salvarObjetos(oos);
 			DaoCurso.salvarObjetos(oos);
+			DaoProjeto.salvarObjetos(oos);
 			oos.close();
 		} catch (IOException e) {
 			e.printStackTrace();

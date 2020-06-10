@@ -1,15 +1,15 @@
 package controle;
 
 import modelo.DaoPrograma;
-import viewer.JanelaConsultarCursos;
 import viewer.JanelaPrincipal;
 
 public class CtrlPrograma {
 
 	private JanelaPrincipal jPrincipal; 
 	
-	private CtrlConsultarCursos ctrlConsultarCursos;
-	private CtrlConsultarAlunos ctrlConsultarAlunos;
+	private CtrlConsultarCursos  ctrlConsultarCursos;
+	private CtrlConsultarAlunos  ctrlConsultarAlunos;
+	private CtrlConsultarProjetos ctrlConsultarProjetos;
 	
 	
 	public static void main(String[] args) {
@@ -37,6 +37,15 @@ public class CtrlPrograma {
 
 	public void encerrarFuncionalidadeConsultarAlunos() {		
 		this.ctrlConsultarAlunos = null;
+	}
+
+	public void iniciarFuncionalidadeConsultarProjetos() {
+		if(this.ctrlConsultarProjetos == null)
+			this.ctrlConsultarProjetos = new CtrlConsultarProjetos(this);
+	}
+
+	public void encerrarFuncionalidadeConsultarProjetos() {		
+		this.ctrlConsultarProjetos = null;
 	}
 
 	public void salvarDados() {

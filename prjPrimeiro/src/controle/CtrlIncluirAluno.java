@@ -1,5 +1,7 @@
 package controle;
 
+import java.util.List;
+
 import modelo.Aluno;
 import modelo.Curso;
 import modelo.DaoAluno;
@@ -15,8 +17,8 @@ public class CtrlIncluirAluno {
 	public CtrlIncluirAluno(CtrlConsultarAlunos ctrl) {
 		this.meuControlador = ctrl;
 		DaoCurso daoCurso = new DaoCurso();
-		Curso[] cursos = daoCurso.getAll();
-		this.jAluno = new JanelaAluno(this, "Incluindo Novo Aluno", cursos);
+		List<Curso> todosCursos = daoCurso.getAll();
+		this.jAluno = new JanelaAluno(this, "Incluindo Novo Aluno", todosCursos);
 	}
 
 	public void incluirAluno(String cpf, String nome, int matr, Object curso) throws ModeloException {

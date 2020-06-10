@@ -3,6 +3,7 @@ package viewer;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collection;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -34,17 +35,17 @@ public class JanelaCurso extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JanelaCurso(CtrlIncluirCurso ctrl, Object[] tipos, String msg) {
+	public JanelaCurso(CtrlIncluirCurso ctrl, Collection tipos, String msg) {
 		this(msg, "", "", tipos);
 		this.ctrlIncluir = ctrl;
 	}
 
-	public JanelaCurso(CtrlAlterarCurso ctrl, int codigo, String nome, Object[] tipos, String msg) {
+	public JanelaCurso(CtrlAlterarCurso ctrl, int codigo, String nome, Collection tipos, String msg) {
 		this(msg, Integer.toString(codigo), nome, tipos);
 		this.ctrlAlterar = ctrl;
 	}
 
-	public JanelaCurso(CtrlExcluirCurso ctrl, int codigo, String nome, Object[] tipos, String msg) {
+	public JanelaCurso(CtrlExcluirCurso ctrl, int codigo, String nome, Collection tipos, String msg) {
 		this(msg, Integer.toString(codigo), nome, tipos);
 		this.ctrlExcluir = ctrl;
 		tfCodigo.setEditable(false);
@@ -54,7 +55,7 @@ public class JanelaCurso extends JFrame {
 	/**
 	 * @wbp.parser.constructor
 	 */
-	private JanelaCurso(String msg, String codigo, String nome, Object[] tipos) {
+	private JanelaCurso(String msg, String codigo, String nome, Collection tipos) {
 		setTitle("Curso");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 637, 374);
@@ -141,7 +142,7 @@ public class JanelaCurso extends JFrame {
 		lblTipoDoCurso.setBounds(31, 173, 139, 20);
 		contentPane.add(lblTipoDoCurso);
 
-		cbTipoCurso = new JComboBox(tipos);
+		cbTipoCurso = new JComboBox(tipos.toArray());
 		cbTipoCurso.setBounds(160, 168, 399, 26);
 		contentPane.add(cbTipoCurso);
 

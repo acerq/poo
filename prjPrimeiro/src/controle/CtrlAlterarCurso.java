@@ -15,7 +15,7 @@ public class CtrlAlterarCurso {
 	public CtrlAlterarCurso(CtrlConsultarCursos ctrl, Curso cursoParaAlterar) {	
 		this.meuControlador = ctrl;
 		this.curso = cursoParaAlterar;
-		this.jCurso = new JanelaCurso(this, curso.getCodigo(), curso.getNome(), TipoCurso.values(), "Alterar Curso");
+		this.jCurso = new JanelaCurso(this, curso.getCodigo(), curso.getNome(), TipoCurso.getAll(), "Alterar Curso");
 	}
 	
 	public void alterarCurso(int codigo, String nome, Object tipo) throws ModeloException {

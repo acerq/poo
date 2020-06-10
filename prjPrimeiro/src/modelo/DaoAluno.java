@@ -49,9 +49,8 @@ public class DaoAluno {
 		return lista.get(pos);
 	}
 	
-	public Aluno[] getAll() {
-		List<Aluno> lista = new ArrayList<Aluno>(conjAlunos);
-		return lista.toArray(new Aluno[0]);
+	public List<Aluno> getAll() {
+		return new ArrayList<Aluno>(conjAlunos);
 	}
 	
 	public int size() {

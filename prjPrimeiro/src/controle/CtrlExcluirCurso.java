@@ -15,7 +15,7 @@ public class CtrlExcluirCurso {
 	public CtrlExcluirCurso(CtrlConsultarCursos ctrl, Curso cursoParaExclusao) {	
 		this.meuControlador = ctrl;
 		this.curso = cursoParaExclusao;
-		this.jCurso = new JanelaCurso(this, curso.getCodigo(), curso.getNome(), TipoCurso.values(),  "Deseja Excluir este Curso?");
+		this.jCurso = new JanelaCurso(this, curso.getCodigo(), curso.getNome(), TipoCurso.getAll(),  "Deseja Excluir este Curso?");
 	}
 	
 	public void excluirCurso(int codigo, String nome, Object tipo) throws ModeloException {

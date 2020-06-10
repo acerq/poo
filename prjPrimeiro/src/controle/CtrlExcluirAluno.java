@@ -1,5 +1,7 @@
 package controle;
 
+import java.util.List;
+
 import modelo.Aluno;
 import modelo.Curso;
 import modelo.DaoAluno;
@@ -17,8 +19,8 @@ public class CtrlExcluirAluno {
 		this.meuControlador = ctrl;
 		this.aluno = alunoParaExclusao;
 		DaoCurso daoCurso = new DaoCurso();
-		Curso[] cursos = daoCurso.getAll();
-		this.jAluno = new JanelaAluno(this, "Deseja Excluir este Aluno?", aluno.getCpf(), aluno.getNome(), aluno.getMatr(), aluno.getMeuCurso(), cursos);
+		List<Curso> todosCursos = daoCurso.getAll();
+		this.jAluno = new JanelaAluno(this, "Deseja Excluir este Aluno?", aluno.getCpf(), aluno.getNome(), aluno.getMatr(), aluno.getMeuCurso(), todosCursos);
 	}
 	
 	public void excluirAluno(String cpf, String nome, int matr, Object selecionado) throws ModeloException {
